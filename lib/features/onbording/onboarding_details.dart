@@ -119,7 +119,7 @@ class _OnboardingDetailsState extends State<OnboardingDetails> {
               );
             },
             onPressNext: () {
-              Navigator.pushReplacementNamed(context, RoutesManager.splash);
+              Navigator.pushReplacementNamed(context, RoutesManager.login);
               setState(() {});
             },
             imageAsset: ImageAssets.on5,

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:movie/core/widgets/custom_elevated_button.dart';
 
 import '../../core/recources/assets_manager/assets_manager.dart';
 import '../../core/recources/colors_manager/colors_manager.dart';
@@ -58,17 +59,17 @@ class Onboarding extends StatelessWidget {
                   textAlign: TextAlign.center,
                 ),
                 SizedBox(height: 24.h),
-                // CustomElevatedButton(
-                //   title: "Explore Now",
-                //   bgColor: ColorsManager.yellow,
-                //   onPress: () {
-                //     Navigator.pushReplacementNamed(
-                //       context,
-                //       RoutesManager.onboardingDetails,
-                //     );
-                //   },
-                //   titleColor: ColorsManager.black,
-                // ),
+                CustomElevatedButton(
+                  title: "Explore Now",
+                  bgColor: ColorsManager.yellow,
+                  onPress: () {
+                    Navigator.pushReplacementNamed(
+                      context,
+                      RoutesManager.onboardingDetails,
+                    );
+                  },
+                  titleColor: ColorsManager.black,
+                ),
               ],
             ),
           ),
