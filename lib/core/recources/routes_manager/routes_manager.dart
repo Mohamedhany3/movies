@@ -12,7 +12,6 @@ abstract class RoutesManager {
   static const String onboarding = "/Onboarding";
   static const String onboardingDetails = "/OnboardingDetails";
   static const String mainLayout = "/MainLayout";
-  static const String onboardingDetails = "/onboardingDetails";
   static const String login = "/login";
   static const String register = "/register";
   static const String forgetPass = "/forgetPass";
