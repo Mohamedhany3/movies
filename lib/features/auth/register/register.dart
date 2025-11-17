@@ -187,5 +187,6 @@ class _RegisterState extends State<Register> {
 
   void _createAccount() {
     if (!_formKey.currentState!.validate()) return;
+    Navigator.pushReplacementNamed(context, RoutesManager.login);
   }
 }

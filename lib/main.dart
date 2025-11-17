@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
       builder: (context, child) => MaterialApp(
         debugShowCheckedModeBanner: false,
         routes: RoutesManager.routes,
-        initialRoute: RoutesManager.login,
+        initialRoute: RoutesManager.splash,
         locale: Locale("en"),
       ),
     );
