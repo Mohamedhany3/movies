@@ -21,3 +21,18 @@ abstract class ImageAssets {
   static const String av8 = "assets/images/avatar8.png";
   static const String av9 = "assets/images/avatar9.png";
 }
+
+abstract class IconsNav {
+  static const String home = 'assets/icons_navigation_Bar/home.png';
+  static const String homeFilled =
+      'assets/icons_navigation_Bar/home_filled.png';
+  static const String search = 'assets/icons_navigation_Bar/search.png';
+  static const String searchFilled =
+      'assets/icons_navigation_Bar/search_filled.png';
+  static const String browser = 'assets/icons_navigation_Bar/browser.png';
+  static const String browserFilled =
+      'assets/icons_navigation_Bar/browser_filled.png';
+  static const String profile = 'assets/icons_navigation_Bar/profile.png';
+  static const String profileFilled =
+      'assets/icons_navigation_Bar/Profile_filled.png';
+}
