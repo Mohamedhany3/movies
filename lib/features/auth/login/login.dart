@@ -206,5 +206,6 @@ class _LoginState extends State<Login> {
 
   void _login() {
     if (!_formKey.currentState!.validate()) return;
+    Navigator.pushReplacementNamed(context, RoutesManager.mainLayout);
   }
 }
