@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:movie/features/auth/forget_password/forget_password.dart';
+import 'package:movie/features/auth/login/login.dart';
+import 'package:movie/features/auth/register/register.dart';
 import 'package:movie/features/main_layout/main_layout.dart';
 import 'package:movie/features/main_layout/tabs/browse_tab/browser_tab.dart';
 import 'package:movie/features/main_layout/tabs/home_tab/home_tab.dart';
@@ -13,6 +16,9 @@ abstract class RoutesManager {
   static const String onboarding = "/Onboarding";
   static const String onboardingDetails = "/OnboardingDetails";
   static const String mainLayout = "/MainLayout";
+  static const String login = "/login";
+  static const String register = "/register";
+  static const String forgetPass = "/forgetPass";
   static const String homeTab = "/HomeTab";
   static const String searchTab = "/SearchTab";
   static const String browserTab = "/BrowserTab";
@@ -22,6 +28,9 @@ abstract class RoutesManager {
     splash: (context) => SplashScreen(),
     onboarding: (context) => Onboarding(),
     onboardingDetails: (context) => OnboardingDetails(),
+    login: (context) => Login(),
+    register: (context) => Register(),
+    forgetPass: (context) => ForgetPassword(),
     mainLayout: (context) => MainLayout(),
     homeTab: (context) => HomeTab(),
     searchTab: (context) => SearchTab(),

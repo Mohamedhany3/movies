@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:movie/core/widgets/custom_elevated_button.dart';
 
 import '../../core/recources/colors_manager/colors_manager.dart';
 
@@ -92,23 +93,23 @@ class OnboardingWidget extends StatelessWidget {
                     textAlign: TextAlign.center,
                   ),
                   SizedBox(height: 24.h),
-                  // CustomElevatedButton(
-                  //   title: titleButton,
-                  //   bgColor: ColorsManager.yellow,
-                  //   onPress: onPressNext,
-                  //   titleColor: ColorsManager.black,
-                  // ),
+                  CustomElevatedButton(
+                    title: titleButton,
+                    bgColor: ColorsManager.yellow,
+                    onPress: onPressNext,
+                    titleColor: ColorsManager.black,
+                  ),
                   SizedBox(height: 14.h),
-                  // Visibility(
-                  //   visible: visible,
-                  //   child: CustomElevatedButton(
-                  //     title: "Back",
-                  //     bgColor: Colors.transparent,
-                  //     onPress: onPressBack,
-                  //     titleColor: ColorsManager.yellow,
-                  //     borderColor: ColorsManager.yellow,
-                  //   ),
-                  // ),
+                  Visibility(
+                    visible: visible,
+                    child: CustomElevatedButton(
+                      title: "Back",
+                      bgColor: Colors.transparent,
+                      onPress: onPressBack,
+                      titleColor: ColorsManager.yellow,
+                      borderColor: ColorsManager.yellow,
+                    ),
+                  ),
                 ],
               ),
             ),
