@@ -29,7 +29,7 @@ class _MainLayoutState extends State<MainLayout> {
   Widget build(BuildContext context) {
     return Scaffold(
       extendBody: true,
-      backgroundColor: ColorsManager.white,
+      backgroundColor: ColorsManager.black,
       body: tabs[selectedIndex],
       bottomNavigationBar: _BottomNavigationBar(),
       // bottomNavigationBar: _bottomNavBar(),

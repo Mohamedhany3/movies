@@ -1,13 +1,23 @@
 abstract class ImageAssets {
-  static const String base = "assets/images";
   static const String moviesLogo = "assets/onboarding/movies logo.png";
   static const String postersOnboarding = "assets/onboarding/Posters.png";
   static const String routeLogo = "assets/onboarding/route_logo.png";
+
   static const String on1 = "assets/onboarding/on_1.jpg";
   static const String on2 = "assets/onboarding/on_2.jpg";
   static const String on3 = "assets/onboarding/on_3.jpg";
   static const String on4 = "assets/onboarding/on_4.jpg";
   static const String on5 = "assets/onboarding/on_5.jpg";
+
+  static const String background = "assets/images/backGround_home_1917.jpg";
+  static const String availableNow = "assets/images/available now.png";
+  static const String watchNow = "assets/images/watch now.png";
+  static const String movie1 = "assets/images/movie 1.jpg";
+  static const String movie2 = "assets/images/movie 2.jpg";
+  static const String movie3 = "assets/images/movie 3.jpg";
+  static const String movie4 = "assets/images/batman.jpg";
+
+  static const String star = "assets/images/star 1.png";
 }
 
 abstract class IconsNav {
@@ -20,7 +30,7 @@ abstract class IconsNav {
   static const String browser = 'assets/icons_navigation_Bar/browser.png';
   static const String browserFilled =
       'assets/icons_navigation_Bar/browser_filled.png';
-  static const String profile = 'assets/icons_navigation_Bar/profile.png';
+  static const String profile = 'assets/icons_navigation_Bar/Profile.png';
   static const String profileFilled =
       'assets/icons_navigation_Bar/Profile_filled.png';
 }
