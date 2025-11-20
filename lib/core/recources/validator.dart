@@ -44,7 +44,7 @@ class Validator {
 
   String? validatePhoneNumber(String? value) {
     if (value == null || value.trim().isEmpty) {
-      return "Please,enter password";
+      return "Please,enter Phone Number";
     }
     if (value.length != 11) {
       return "Phone Number must be 11 digits";

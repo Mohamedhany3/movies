@@ -1,10 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:movie/features/auth/data/data_sources/remote/auth_api_remote_data_source.dart';
+import 'package:movie/features/auth/data/repositories_impl/auth_repository_impl.dart';
+import 'package:movie/features/auth/presentation/cubit/auth_cubit.dart';
+import 'package:movie/features/auth/repositories/auth_repository.dart';
 
 import 'core/recources/routes_manager/routes_manager.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(
+    BlocProvider(
+      create: (context) => AuthCubit(
+        authRepository: AuthRepositoryImpl(
+          authApiRemoteDataSource: AuthApiRemoteDataSource(),
+        ),
+      ),
+      child: MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -19,7 +33,7 @@ class MyApp extends StatelessWidget {
       builder: (context, child) => MaterialApp(
         debugShowCheckedModeBanner: false,
         routes: RoutesManager.routes,
-        initialRoute: RoutesManager.mainLayout,
+        initialRoute: RoutesManager.login,
         locale: Locale("en"),
       ),
     );

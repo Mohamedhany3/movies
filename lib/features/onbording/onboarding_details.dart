@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 import '../../core/recources/assets_manager/assets_manager.dart';
 import '../../core/recources/colors_manager/colors_manager.dart';

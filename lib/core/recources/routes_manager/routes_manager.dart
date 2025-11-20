@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:movie/features/auth/forget_password/forget_password.dart';
-import 'package:movie/features/auth/login/login.dart';
-import 'package:movie/features/auth/register/register.dart';
+import 'package:movie/features/auth/presentation/screens/forget_password.dart';
+import 'package:movie/features/auth/presentation/screens/login.dart';
+import 'package:movie/features/auth/presentation/screens/register.dart';
 import 'package:movie/features/main_layout/main_layout.dart';
 import 'package:movie/features/main_layout/tabs/browse_tab/browser_tab.dart';
 import 'package:movie/features/main_layout/tabs/home_tab/home_tab.dart';
