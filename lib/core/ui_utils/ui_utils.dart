@@ -10,6 +10,7 @@ class UIUtils {
       builder: (context) => PopScope(
         canPop: false,
         child: AlertDialog(
+          backgroundColor: ColorsManager.black,
           content: Column(
             mainAxisSize: MainAxisSize.min,
             children: [

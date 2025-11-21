@@ -1,14 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:movie/core/recources/assets_manager/assets_manager.dart';
 import 'package:movie/core/recources/colors_manager/colors_manager.dart';
 import 'package:movie/core/recources/routes_manager/routes_manager.dart';
 import 'package:movie/core/recources/validator.dart';
+import 'package:movie/core/ui_utils/ui_utils.dart';
 import 'package:movie/core/widgets/custom_elevated_button.dart';
 import 'package:movie/core/widgets/custom_text_button.dart';
 import 'package:movie/core/widgets/custom_text_form_field.dart';
 import 'package:movie/core/widgets/language_selector.dart';
+import 'package:movie/features/auth/data/models/LoginRequest.dart';
+import 'package:movie/features/auth/presentation/cubit/auth_cubit.dart';
 
 class Login extends StatefulWidget {
   const Login({super.key});
@@ -88,11 +92,34 @@ class _LoginState extends State<Login> {
                       },
                     ),
                     SizedBox(height: 22.h),
-                    CustomElevatedButton(
-                      title: "Login",
-                      bgColor: ColorsManager.yellow,
-                      onPress: _login,
-                      titleColor: ColorsManager.black,
+                    BlocListener<AuthCubit, AuthState>(
+                      listener: (context, state) {
+                        if (state is LoginLoadingState) {
+                          UIUtils.showLoading(context);
+                        } else if (state is LoginErrorState) {
+                          UIUtils.hideDialog(context);
+                          UIUtils.showToastMessage(
+                            state.message,
+                            ColorsManager.red,
+                          );
+                        } else if (state is LoginSuccessState) {
+                          UIUtils.hideDialog(context);
+                          UIUtils.showToastMessage(
+                            "Successfully Login",
+                            ColorsManager.green,
+                          );
+                          Navigator.pushReplacementNamed(
+                            context,
+                            RoutesManager.mainLayout,
+                          );
+                        }
+                      },
+                      child: CustomElevatedButton(
+                        title: "Login",
+                        bgColor: ColorsManager.yellow,
+                        onPress: _login,
+                        titleColor: ColorsManager.black,
+                      ),
                     ),
                     SizedBox(height: 22.h),
                     Row(
@@ -206,6 +233,11 @@ class _LoginState extends State<Login> {
 
   void _login() {
     if (!_formKey.currentState!.validate()) return;
-    Navigator.pushReplacementNamed(context, RoutesManager.mainLayout);
+    BlocProvider.of<AuthCubit>(context).login(
+      LoginRequest(
+        email: _emailController.text,
+        password: _passwordController.text,
+      ),
+    );
   }
 }

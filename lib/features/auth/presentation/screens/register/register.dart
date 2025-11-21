@@ -11,9 +11,10 @@ import 'package:movie/core/widgets/custom_elevated_button.dart';
 import 'package:movie/core/widgets/custom_text_button.dart';
 import 'package:movie/core/widgets/custom_text_form_field.dart';
 import 'package:movie/core/widgets/language_selector.dart';
-import 'package:movie/core/widgets/avatar_slider.dart';
+import 'package:movie/features/auth/presentation/screens/register/avatar_slider.dart';
 import 'package:movie/features/auth/data/models/RegisterRequest.dart';
 import 'package:movie/features/auth/presentation/cubit/auth_cubit.dart';
+import 'package:movie/model/avatar_model.dart';
 
 class Register extends StatefulWidget {
   const Register({super.key});
@@ -32,6 +33,7 @@ class _RegisterState extends State<Register> {
   final _validator = Validator();
   bool securedPassword = true;
   bool securedRePassword = true;
+  int selectedAvatarId = 1;
   @override
   void initState() {
     _nameController = TextEditingController();
@@ -64,8 +66,7 @@ class _RegisterState extends State<Register> {
         key: _formKey,
         child: Column(
           children: [
-            SizedBox(height: 200.h, child: AvatarSlider()),
-
+            AvatarSlider(),
             Padding(
               padding: REdgeInsets.symmetric(
                 horizontal: 16,
@@ -146,19 +147,19 @@ class _RegisterState extends State<Register> {
                       SizedBox(height: 20.h),
                       BlocListener<AuthCubit, AuthState>(
                         listener: (context, state) {
-                          if (state is LoadingState) {
+                          if (state is RegisterLoadingState) {
                             UIUtils.showLoading(context);
-                          } else if (state is ErrorState) {
+                          } else if (state is RegisterErrorState) {
                             UIUtils.hideDialog(context);
                             UIUtils.showToastMessage(
                               state.message,
                               ColorsManager.red,
                             );
-                          } else if (state is SuccessState) {
+                          } else if (state is RegisterSuccessState) {
                             UIUtils.hideDialog(context);
                             UIUtils.showToastMessage(
                               "Registered Successfully",
-                              Colors.green,
+                              ColorsManager.green,
                             );
                             Navigator.pushReplacementNamed(
                               context,
@@ -233,6 +234,7 @@ class _RegisterState extends State<Register> {
 
   void _createAccount() {
     if (!_formKey.currentState!.validate()) return;
+
     BlocProvider.of<AuthCubit>(context).register(
       RegisterRequest(
         name: _nameController.text,
@@ -240,7 +242,7 @@ class _RegisterState extends State<Register> {
         password: _passwordController.text,
         confirmPassword: _rePasswordController.text,
         phone: _phoneController.text,
-        avatarId: 1,
+        avaterId: AvatarModel.avatars[selectedAvatarId].avatarId,
       ),
     );
   }
