@@ -33,7 +33,7 @@ class MyApp extends StatelessWidget {
       builder: (context, child) => MaterialApp(
         debugShowCheckedModeBanner: false,
         routes: RoutesManager.routes,
-        initialRoute: RoutesManager.mainLayout,
+        initialRoute: RoutesManager.updateProfileTab,
         locale: Locale("en"),
       ),
     );
