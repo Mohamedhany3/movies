@@ -30,26 +30,13 @@ class _BrowserTabState extends State<BrowserTab> {
           },
         ),
 
-            Expanded(
-              child: CustomGridView(
-                crossAxisCount: 2,
-                crossAxisSpacing: 8,
-                mainAxisExtent: 279.h,
-                mainAxisSpacing: 8,
-                imageHeight: 280.h,
-                imageWidth: 189.w,
-                movies: MovieModel.detalisMovie,
-              ),
-            ),
-          ],
-        ),
-      ),
         Expanded(
           child: CustomGridView(
             crossAxisCount: 2,
             crossAxisSpacing: 8,
             mainAxisExtent: 279.h,
             mainAxisSpacing: 8,
+            imageHeight: 280.h,
             imageWidth: 189.w,
             movies: MovieModel.detalisMovie,
           ),
