@@ -11,11 +11,13 @@ class MovieItem extends StatelessWidget {
     required this.image,
     required this.rate,
     required this.widthImage,
+    required this.heightImage,
   });
 
   final String image;
   final String rate;
   final double widthImage;
+  final double heightImage;
 
   @override
   Widget build(BuildContext context) {
@@ -24,18 +26,28 @@ class MovieItem extends StatelessWidget {
       child: Stack(
         children: [
           // Image
+          // Container(
+          //   margin: REdgeInsets.symmetric(horizontal: 16),
+          //   width: widthImage,
+          //   decoration: BoxDecoration(
+          //     image: DecorationImage(
+          //       image: AssetImage(image),
+          //       fit: BoxFit.fill,
+          //     ),
+          //     color: Colors.green,
+          //     borderRadius: BorderRadius.circular(20),
+          //   ),
+          // ),
           Container(
             margin: REdgeInsets.symmetric(horizontal: 16),
+            height: heightImage,
             width: widthImage,
-            decoration: BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage(image),
-                fit: BoxFit.fill,
-              ),
-              color: Colors.green,
+            child: ClipRRect(
               borderRadius: BorderRadius.circular(20),
+              child: Image.network(image, fit: BoxFit.fill),
             ),
           ),
+
           // Rating
           Container(
             margin: EdgeInsets.only(left: 30, top: 9),

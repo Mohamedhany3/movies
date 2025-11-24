@@ -39,6 +39,7 @@ class _BrowserTabState extends State<BrowserTab> {
                 crossAxisSpacing: 8,
                 mainAxisExtent: 279.h,
                 mainAxisSpacing: 8,
+                imageHeight: 280.h,
                 imageWidth: 189.w,
                 movies: MovieModel.detalisMovie,
               ),

@@ -57,7 +57,7 @@ class _HomeTabState extends State<HomeTab> {
                 ),
               ),
               Padding(
-                padding: REdgeInsets.only(bottom: 40),
+                padding: REdgeInsets.only(bottom: 100),
                 child: Column(
                   children: [
                     SizedBox(height: 10.h),
@@ -82,6 +82,7 @@ class _HomeTabState extends State<HomeTab> {
                         return Builder(
                           builder: (BuildContext context) {
                             return MovieItem(
+                              heightImage: 350.h,
                               image: movie.image,
                               rate: movie.rate,
                               widthImage: 243.w,
@@ -161,6 +162,7 @@ class _HomeTabState extends State<HomeTab> {
                                 itemBuilder: (context, index) {
                                   final movie = state.movies[index];
                                   return MovieItem(
+                                    heightImage: 220.h,
                                     widthImage: 156.w,
                                     image: movie.backgroundImage,
                                     rate: movie.rating.toString(),

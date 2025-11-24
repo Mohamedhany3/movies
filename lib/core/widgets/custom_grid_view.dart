@@ -10,6 +10,7 @@ class CustomGridView extends StatelessWidget {
     required this.mainAxisExtent,
     required this.mainAxisSpacing,
     required this.imageWidth,
+    required this.imageHeight,
     required this.movies,
   });
   final int crossAxisCount;
@@ -17,6 +18,7 @@ class CustomGridView extends StatelessWidget {
   final double crossAxisSpacing;
   final double? mainAxisExtent;
   final double imageWidth;
+  final double imageHeight;
   final List<MovieModel> movies;
 
   @override
@@ -33,6 +35,7 @@ class CustomGridView extends StatelessWidget {
       itemBuilder: (context, index) {
         final movie = movies[index];
         return MovieItem(
+          heightImage: imageHeight,
           image: movie.image,
           rate: movie.rate,
           widthImage: imageWidth,
