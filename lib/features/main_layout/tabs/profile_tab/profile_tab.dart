@@ -5,6 +5,8 @@ import 'package:movie/core/recources/assets_manager/assets_manager.dart';
 import 'package:movie/core/recources/colors_manager/colors_manager.dart';
 import 'package:movie/core/recources/routes_manager/routes_manager.dart';
 import 'package:movie/core/widgets/custom_elevated_button.dart';
+import 'package:movie/core/widgets/custom_grid_view.dart';
+import 'package:movie/model/moive_model.dart';
 
 class ProfileTab extends StatefulWidget {
   const ProfileTab({super.key});
@@ -135,14 +137,15 @@ class _ProfileTabState extends State<ProfileTab>
           child: TabBarView(
             controller: tabController,
             children: [
-              Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [Image.asset(ImageAssets.empty, width: 124.w)],
-              ),
+              Center(child: Image.asset(ImageAssets.empty, width: 124.w)),
 
-              Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [Image.asset(ImageAssets.on2, width: 124.w)],
+              CustomGridView(
+                crossAxisCount: 3,
+                crossAxisSpacing: 1,
+                mainAxisExtent: 180,
+                mainAxisSpacing: 10,
+                imageWidth: 152,
+                movies: MovieModel.detalisMovie,
               ),
             ],
           ),

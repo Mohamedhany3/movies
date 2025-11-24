@@ -19,33 +19,28 @@ class _BrowserTabState extends State<BrowserTab> {
   late CategoryModel selectedCategory = CategoryModel.categories[0];
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: ColorsManager.black,
-      body: Padding(
-        padding: REdgeInsets.symmetric(vertical: 25, horizontal: 16),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            CustomTabBar(
-              categories: CategoryModel.categories,
-              onCategoryItemClicked: (category) {
-                selectedCategory = category;
-              },
-            ),
-
-            Expanded(
-              child: CustomGridView(
-                crossAxisCount: 2,
-                crossAxisSpacing: 8,
-                mainAxisExtent: 279.h,
-                mainAxisSpacing: 8,
-                imageWidth: 189.w,
-                movies: MovieModel.detalisMovie,
-              ),
-            ),
-          ],
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        SizedBox(height: 40.h),
+        CustomTabBar(
+          categories: CategoryModel.categories,
+          onCategoryItemClicked: (category) {
+            selectedCategory = category;
+          },
         ),
-      ),
+
+        Expanded(
+          child: CustomGridView(
+            crossAxisCount: 2,
+            crossAxisSpacing: 8,
+            mainAxisExtent: 279.h,
+            mainAxisSpacing: 8,
+            imageWidth: 189.w,
+            movies: MovieModel.detalisMovie,
+          ),
+        ),
+      ],
     );
   }
 }

@@ -24,9 +24,9 @@ class _CustomTabBarState extends State<CustomTabBar> {
       child: TabBar(
         indicatorColor: Colors.transparent,
         isScrollable: true,
-        padding: EdgeInsets.zero,
         dividerColor: Colors.transparent,
         physics: BouncingScrollPhysics(),
+        tabAlignment: TabAlignment.start,
         onTap: (newIndex) {
           widget.onCategoryItemClicked?.call(widget.categories[newIndex]);
           selectedIndex = newIndex;
