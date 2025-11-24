@@ -32,6 +32,8 @@ abstract class ImageAssets {
   static const String av7 = "assets/images/avatar7.png";
   static const String av8 = "assets/images/avatar8.png";
   static const String av9 = "assets/images/avatar9.png";
+
+  static const String empty = "assets/images/Empty 1.png";
 }
 
 abstract class IconsNav {
@@ -47,4 +49,9 @@ abstract class IconsNav {
   static const String profile = 'assets/icons_navigation_Bar/Profile.png';
   static const String profileFilled =
       'assets/icons_navigation_Bar/Profile_filled.png';
+}
+
+abstract class IconProfile {
+  static const String watch = "assets/icon_profile/watch.png";
+  static const String history = "assets/icon_profile/Folder.png";
 }
