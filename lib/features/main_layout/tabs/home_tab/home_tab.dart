@@ -1,10 +1,14 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:movie/core/recources/assets_manager/assets_manager.dart';
 import 'package:movie/core/recources/colors_manager/colors_manager.dart';
 import 'package:movie/core/widgets/custom_text_button.dart';
+import 'package:movie/features/main_layout/data/data_sources/remote/movies_api_remote_data_sources.dart';
+import 'package:movie/features/main_layout/data/repositories_impl/movies_repositories_impl.dart';
+import 'package:movie/features/main_layout/tabs/home_tab/home_cubit.dart';
 import 'package:movie/model/moive_model.dart';
 import 'package:movie/core/widgets/movie_item.dart';
 
@@ -126,22 +130,53 @@ class _HomeTabState extends State<HomeTab> {
                         ],
                       ),
                     ),
-                    SizedBox(height: 12.h),
-                    // Movies
-                    SizedBox(
-                      height: 220.h,
-                      child: ListView.builder(
-                        physics: BouncingScrollPhysics(),
-                        shrinkWrap: true,
-                        itemCount: MovieModel.detalisMovie.length,
-                        scrollDirection: Axis.horizontal,
-                        itemBuilder: (context, index) => MovieItem(
-                          widthImage: 156.w,
-                          image: MovieModel.detalisMovie[index].image,
-                          rate: MovieModel.detalisMovie[index].rate,
+                    BlocProvider(
+                      create: (context) => HomeCubit(
+                        moviesRepositories: MoviesRepositoriesImpl(
+                          moviesApiRemoteDataSources:
+                              MoviesAPIRemoteDataSources(),
                         ),
+                      )..getMovies(),
+                      child: BlocBuilder<HomeCubit, HomeState>(
+                        builder: (context, state) {
+                          // var cubit = BlocProvider.of<HomeCubit>(context).getMovies();
+                          if (state is MoviesLoading) {
+                            return Center(child: CircularProgressIndicator());
+                          } else if (state is MoviesError) {
+                            return Text(
+                              state.message,
+                              style: GoogleFonts.aBeeZee(
+                                fontSize: 20,
+                                color: ColorsManager.yellow,
+                              ),
+                            );
+                          } else if (state is MoviesSuccess) {
+                            return SizedBox(
+                              height: 220.h,
+                              child: ListView.builder(
+                                physics: BouncingScrollPhysics(),
+                                shrinkWrap: true,
+                                itemCount: state.movies.length,
+                                scrollDirection: Axis.horizontal,
+                                itemBuilder: (context, index) {
+                                  final movie = state.movies[index];
+                                  return MovieItem(
+                                    widthImage: 156.w,
+                                    image: movie.backgroundImage,
+                                    rate: movie.rating.toString(),
+                                  );
+                                },
+                              ),
+                            );
+                          } else {
+                            return Text('');
+                          }
+                        },
                       ),
                     ),
+
+                    // Movies
+                    SizedBox(height: 12.h),
                   ],
                 ),
               ),

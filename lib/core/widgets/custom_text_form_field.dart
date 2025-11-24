@@ -13,6 +13,7 @@ class CustomTextFormField extends StatefulWidget {
     required this.validator,
     required this.controller,
     this.isSecure = false,
+    this.enabled = true,
   });
   final String hint;
   final Widget? suffixIcon;
@@ -21,6 +22,7 @@ class CustomTextFormField extends StatefulWidget {
   final String? Function(String?) validator;
   final TextEditingController controller;
   final bool isSecure;
+  final bool enabled;
 
   @override
   State<CustomTextFormField> createState() => _CustomTextFormFieldState();
@@ -30,6 +32,7 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      enabled: widget.enabled,
       validator: widget.validator,
       controller: widget.controller,
       cursorColor: ColorsManager.white,
@@ -54,7 +57,6 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
           borderRadius: BorderRadius.circular(15.r),
           borderSide: BorderSide(color: ColorsManager.red, width: 2.w),
         ),
-
         hintText: widget.hint,
         hintStyle: GoogleFonts.roboto(
           fontWeight: FontWeight.w400,

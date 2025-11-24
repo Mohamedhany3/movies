@@ -4,9 +4,10 @@ import 'package:movie/features/auth/presentation/screens/login/login.dart';
 import 'package:movie/features/auth/presentation/screens/register/register.dart';
 import 'package:movie/features/main_layout/main_layout.dart';
 import 'package:movie/features/main_layout/tabs/browse_tab/browser_tab.dart';
-import 'package:movie/features/main_layout/tabs/home_tab/home_tab.dart';
 import 'package:movie/features/main_layout/tabs/profile_tab/profile_tab.dart';
+import 'package:movie/features/update_profile/update_profile.dart';
 import 'package:movie/features/main_layout/tabs/search_tab/search_tab.dart';
+import '../../../features/main_layout/tabs/home_tab/home_tab.dart';
 import '../../../features/onbording/onboarding.dart';
 import '../../../features/onbording/onboarding_details.dart';
 import '../../../features/splash/splash_screen.dart';
@@ -23,6 +24,7 @@ abstract class RoutesManager {
   static const String searchTab = "/SearchTab";
   static const String browserTab = "/BrowserTab";
   static const String profileTab = "/Profile";
+  static const String updateProfileTab = "/UpdateProfile";
 
   static Map<String, WidgetBuilder> routes = {
     splash: (context) => SplashScreen(),
@@ -36,5 +38,6 @@ abstract class RoutesManager {
     searchTab: (context) => SearchTab(),
     browserTab: (context) => BrowserTab(),
     profileTab: (context) => ProfileTab(),
+    updateProfileTab: (context) => UpdateProfile(),
   };
 }

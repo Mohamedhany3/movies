@@ -35,7 +35,7 @@ abstract class ImageAssets {
 }
 
 abstract class IconsNav {
-  static const String home = 'assets/icons_navigation_Bar/home.png';
+  static const String home = 'assets/icons_navigation_Bar/home_tab.png';
   static const String homeFilled =
       'assets/icons_navigation_Bar/home_filled.png';
   static const String search = 'assets/icons_navigation_Bar/search.png';
