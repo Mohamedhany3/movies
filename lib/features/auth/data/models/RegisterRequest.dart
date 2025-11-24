@@ -18,12 +18,12 @@ class RegisterRequest {
       avaterId: json['avaterId'],
     );
   }
-  final String? name;
-  final String? email;
-  final String? password;
-  final String? confirmPassword;
-  final String? phone;
-  final int? avaterId;
+  final String name;
+  final String email;
+  final String password;
+  final String confirmPassword;
+  final String phone;
+  final int avaterId;
 
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};

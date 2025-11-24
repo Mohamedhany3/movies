@@ -33,7 +33,7 @@ class _RegisterState extends State<Register> {
   final _validator = Validator();
   bool securedPassword = true;
   bool securedRePassword = true;
-  int selectedAvatarId = 1;
+  int selectedAvatarId = 0;
   @override
   void initState() {
     _nameController = TextEditingController();

@@ -24,15 +24,15 @@ class User {
       v: json['__v'],
     );
   }
-  final String? email;
-  final String? password;
-  final String? name;
-  final String? phone;
-  final int? avatarId;
-  final String? id;
-  final String? createdAt;
-  final String? updatedAt;
-  final int? v;
+  final String email;
+  final String password;
+  final String name;
+  final String phone;
+  final int avatarId;
+  final String id;
+  final String createdAt;
+  final String updatedAt;
+  final int v;
 
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};

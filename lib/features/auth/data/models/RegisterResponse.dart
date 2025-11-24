@@ -9,14 +9,14 @@ class RegisterResponse {
       user: User.fromJson(json['user']),
     );
   }
-  final String? message;
-  final User? user;
+  final String message;
+  final User user;
 
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
     map['message'] = message;
     if (user != null) {
-      map['user'] = user?.toJson();
+      map['user'] = user.toJson();
     }
     return map;
   }

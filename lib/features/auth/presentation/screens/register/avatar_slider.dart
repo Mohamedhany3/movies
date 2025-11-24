@@ -24,7 +24,7 @@ class _AvatarSliderState extends State<AvatarSlider> {
         viewportFraction: 0.38,
         onPageChanged: (index, reason) {
           setState(() {
-            selectedAvatarId = ++index;
+            selectedAvatarId = index;
           });
         },
       ),
